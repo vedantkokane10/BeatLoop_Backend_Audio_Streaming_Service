@@ -4,10 +4,18 @@ import yt_dlp as youtube_dl
 import io
 import urllib.parse
 
+
 app = Flask(__name__)
+
+@app.route('/')
+def greet():
+    return "Hello"
+
 @app.route('/stream_audio/<video_id>')
 def stream_audio(video_id):
     video_id = urllib.parse.unquote(video_id)
+
+    # Use the video ID directly to get the audio stream URL
     ydl_opts = {
         'format': 'bestaudio/best',
         'quiet': True,
@@ -28,4 +36,5 @@ def stream_audio(video_id):
 
 
 if __name__ == '__main__':
-    app.run(port=7000, debug=True)
+    app.run(host='0.0.0.0', port=7000)
+
