@@ -50,12 +50,15 @@ def stream_audio(video_id):
 
     # Use the video ID directly to get the audio stream URL
     ydl_opts = {
-        'format': 'bestaudio/best',
-        'quiet': True,
-        'noplaylist': True,
-        'geo_bypass': True,  # Bypass geo restrictions if necessary
-        'force_generic_extractor': False,  # Use the best extractor available
+            'format': 'bestaudio/best',
+            'quiet': True,
+            'noplaylist': True,
+            'geo_bypass': True,
+            'headers': {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+            }
     }
+
 
     try:
         audio_url = ""
