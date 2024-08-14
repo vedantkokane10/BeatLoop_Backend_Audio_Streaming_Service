@@ -54,7 +54,7 @@ def stream_audio(video_id):
         'quiet': True,
         'noplaylist': True,
         'geo_bypass': True,  # Bypass geo restrictions if necessary
-        'force_generic_extractor': False,  # Use the best extractor available
+        'force_generic_extractor': True,  # Use the best extractor available
     }
 
     try:
